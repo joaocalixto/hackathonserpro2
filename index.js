@@ -353,7 +353,7 @@ function buildMenuCardapio(){
   return arrayElements;
 }
 
-var token = "EAAHej7ghJPYBAIiGyjm6M7RfhtjnGL7dK8bpjHHHzut5NtWuJkC4y6eOFWTx3lbtUHGrXYfYFYhioBCU9znXhxWdZA1rdFwNYWfZCIaEpZBrqqkMBFaOSZCc3jIKad7LJMy1rf5qZC5sbHBzGty5HEcQxytkZCgCIKZBJ7zPtXKagZDZD"
+var token = "EAAFZBLHIfeM0BAG2z6YKpUhKCoByf8cC57HFUuaShhCJN11tLyz7gZCnOlUDnB1JKZCvRUHQJE2xSBfZCfbZBTNHxTN7UpCHrhSzMxR0dHGBWOPNkmsgYJl9zo5b37S52PwUyaTi16zHbFhZCuEDLqdZCswihBeLic0H6JiHVXYuQZDZD"
 
 function getUserInfo(sender, callback) {
   request("https://graph.facebook.com/v2.6/" + sender + "?fields=first_name,last_name,profile_pic&access_token=" + token, function(error, response, body) {
