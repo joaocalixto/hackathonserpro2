@@ -255,5 +255,28 @@ sendGenericMessage: function(sender, arrayElements){
             console.log("Error: ", response.body.error)
         }
     })
+},
+sendQuickReply: function(sender, message, arrayReplies){
+
+    var token = "EAAFZBLHIfeM0BAG2z6YKpUhKCoByf8cC57HFUuaShhCJN11tLyz7gZCnOlUDnB1JKZCvRUHQJE2xSBfZCfbZBTNHxTN7UpCHrhSzMxR0dHGBWOPNkmsgYJl9zo5b37S52PwUyaTi16zHbFhZCuEDLqdZCswihBeLic0H6JiHVXYuQZDZD"
+    messageData = {
+        "text":"Pick a color:",
+        "quick_replies": arrayReplies
+    }
+    request({
+        url: "https://graph.facebook.com/v2.6/me/messages",
+        qs: {access_token:token},
+        method: "POST",
+        json: {
+            recipient: {id:sender},
+            message: messageData,
+        }
+    }, function(error, response, body) {
+        if (error) {
+            console.log("Error sending messages: ", error)
+        } else if (response.body.error) {
+            console.log("Error: ", response.body.error)
+        }
+    })
 }
 };

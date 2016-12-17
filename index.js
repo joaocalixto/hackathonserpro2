@@ -228,16 +228,16 @@ app.post("/webhook/", function(req, res) {
         // console.log("message = " + message);
         console.log("message text = " + message.message_text);
 
-        var arrayButton = buildMenuArray(mensagem_to_send, "http://www.nannaispa.com.br/images/backgrounds/section1.jpg", "");
+        var arrayButton = buildMenuInicial();
         console.log("SENDER ID = "+ sender);
         sessionUtil.updateSession(sender, messageCount, userAnswerYes, opcoesEnviadas, userPic);
-        messenger.sendGenericMessage(sender, arrayButton);
+        messenger.sendQuickReply(sender, mensagem_to_send, arrayButton);
       }
     }
     if (event.postback) {
       // text = JSON.stringify(event.postback)
 
-      if (event.postback.payload == "HOTEL_SIM") {
+      if (event.postback.payload == "INICIAR") {
         messageCount = 1;
         var message = messageUtil.get(1).message_text;
         console.log("hotel sim ")
@@ -293,26 +293,18 @@ app.post("/webhook/", function(req, res) {
   res.sendStatus(200)
 });
 
-
-function buildMenuArray(title, imgURL, subtitle){
+function buildMenuInicial(){
 
   var arrayButton = [];
 
         arrayButton.push({
-            "title":title,
-            "image_url":imgURL,
-            "subtitle":subtitle,
-            "buttons":[
-              {
-                "type":"postback",
-                "title":"Sim",
-                "payload":"HOTEL_SIM"
-              },
-              {
-                "type":"postback",
-                "title":"Não",
-                "payload":"HOTEL_NAO"
-              } ]});
+            "content_type":"renegociar pensão alimentícia",
+            "payload":"RENEGOCIAR"}
+            );
+        arrayButton.push({
+            "content_type":"prestacao de contas",
+            "payload":"PRESTACAO_CONTAS"}
+            );
   return arrayButton;
 }
 
