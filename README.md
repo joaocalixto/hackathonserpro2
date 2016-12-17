@@ -1,5 +1,5 @@
-# hackathon-viagem
+# hackathon-serpro
 
-Projeto para hackathon viagem.
+Projeto para hackathon serpro.
 
 
