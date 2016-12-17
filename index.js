@@ -10,8 +10,13 @@ child dialog by simply saying "menu" or "back".
 
 var builder = require('../../core/');
 
+// Create chat bot
+var connector = new builder.ChatConnector({
+    appId: "a4e7d3de-f410-47ba-aa29-706e63fa39d9",
+    appPassword: "r9HjGnxe7nvY2G6WVWK9geT"
+});
+
 // Setup bot and root waterfall
-var connector = new builder.ConsoleConnector().listen();
 var bot = new builder.UniversalBot(connector, [
     function (session) {
         session.send("Bem vindo ao portal de duvidas do micro empreendor. Aqui você vai tirar todas duvidas.");
