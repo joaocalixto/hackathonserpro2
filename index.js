@@ -8,12 +8,18 @@ child dialog by simply saying "menu" or "back".
     
 -----------------------------------------------------------------------------*/
 
-var builder = require('./core/');
+var restify = require('restify');
+var builder = require('botbuilder');
 
 // Create chat bot
 var connector = new builder.ChatConnector({
     appId: "a4e7d3de-f410-47ba-aa29-706e63fa39d9",
     appPassword: "r9HjGnxe7nvY2G6WVWK9geT"
+});
+
+var server = restify.createServer();
+server.listen(process.env.port || process.env.PORT || 3978, function () {
+   console.log('%s listening to %s', server.name, server.url); 
 });
 
 // Setup bot and root waterfall
@@ -26,6 +32,8 @@ var bot = new builder.UniversalBot(connector, [
         session.endConversation("Xau Xau :)))))");
     }
 ]);
+
+server.post('/api/messages', connector.listen());
 
 // Add root menu dialog
 bot.dialog('rootMenu', [
