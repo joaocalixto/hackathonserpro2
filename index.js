@@ -320,10 +320,12 @@ function buildMenuInicial(){
   var arrayButton = [];
 
         arrayButton.push({
-            "content_type":"renegociar pensão alimentícia",
+            "content_type":"TEXT",
+            "title":"renegociar pensão alimentícia",
             "payload":"RENEGOCIAR"},
             {
-            "content_type":"prestacao de contas",
+            "content_type":"TEXT",
+            "title":"prestacao de contas",
             "payload":"PRESTACAO_CONTAS"}
             );
   return arrayButton;
