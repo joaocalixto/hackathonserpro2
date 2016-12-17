@@ -258,7 +258,7 @@ sendGenericMessage: function(sender, arrayElements){
 },
 sendQuickReply: function(sender, message, arrayReplies){
 
-    var token = "EAAFZBLHIfeM0BAG2z6YKpUhKCoByf8cC57HFUuaShhCJN11tLyz7gZCnOlUDnB1JKZCvRUHQJE2xSBfZCfbZBTNHxTN7UpCHrhSzMxR0dHGBWOPNkmsgYJl9zo5b37S52PwUyaTi16zHbFhZCuEDLqdZCswihBeLic0H6JiHVXYuQZDZD"
+    var token = "EAAFZBLHIfeM0BACcpViZBfd3hwzXeO4KmGCkVe5qog3Kj6dRrGZCay1Xuo1vBxdZCy2UvDhGYXKteL7wKVsvWkIQ9BoJziiL2te45W8zHeMzHbFZBg4M01B1HbUhY6hjveYz6rEQkpZAvLHOERoy7WfqnK3my6yKb0kkMVgzQ9ywZDZD"
 
     console.log("send quick_replies "+ JSON.stringify(arrayReplies));
     messageData = {

@@ -321,12 +321,16 @@ function buildMenuInicial(){
 
         arrayButton.push({
             "content_type":"TEXT",
-            "title":"Renegociar",
-            "payload":"RENEGOCIAR"},
+            "title":"regras e prazos",
+            "payload":"REGRAS_PRAZOS"},
             {
             "content_type":"TEXT",
-            "title":"Prestação de contas",
-            "payload":"PRESTACAO_CONTAS"}
+            "title":"documentos",
+            "payload":"DOCUMENTOS"},
+            {
+            "content_type":"TEXT",
+            "title":"dicas",
+            "payload":"DICAS"}
             );
   return arrayButton;
 }
@@ -368,7 +372,7 @@ function buildMenuCardapio(){
   return arrayElements;
 }
 
-var token = "EAAFZBLHIfeM0BAG2z6YKpUhKCoByf8cC57HFUuaShhCJN11tLyz7gZCnOlUDnB1JKZCvRUHQJE2xSBfZCfbZBTNHxTN7UpCHrhSzMxR0dHGBWOPNkmsgYJl9zo5b37S52PwUyaTi16zHbFhZCuEDLqdZCswihBeLic0H6JiHVXYuQZDZD"
+var token = "EAAFZBLHIfeM0BACcpViZBfd3hwzXeO4KmGCkVe5qog3Kj6dRrGZCay1Xuo1vBxdZCy2UvDhGYXKteL7wKVsvWkIQ9BoJziiL2te45W8zHeMzHbFZBg4M01B1HbUhY6hjveYz6rEQkpZAvLHOERoy7WfqnK3my6yKb0kkMVgzQ9ywZDZD"
 
 function getUserInfo(sender, callback) {
   request("https://graph.facebook.com/v2.6/" + sender + "?fields=first_name,last_name,profile_pic&access_token=" + token, function(error, response, body) {
