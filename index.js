@@ -238,15 +238,37 @@ app.post("/webhook/", function(req, res) {
       // text = JSON.stringify(event.postback)
 
       if (event.postback.payload == "INICIAR") {
-        messageCount = 1;
-        var message = messageUtil.get(1).message_text;
-        console.log("hotel sim ")
-        console.log("message = " + message)
-        opcoesEnviadas += "SIM;"
+        console.log("Entrou != iniciar")
+        var message = messageUtil.get(messageCount);
 
-        messenger.sendTextMessage(sender, message, token);
-        userAnswerYes = "HOTEL_MES";
+        var d = new Date();
+        var n = d.getHours();
+        var saudacao = "";
+
+        if (n < 15) {
+          saudacao = "Bom dia";
+        } else if (n >= 15 && n < 21) {
+          saudacao = "Boa tarde";
+        } else {
+          saudacao = "Boa noite"
+        }
+        var mensagem_to_send = message.message_text
+        mensagem_to_send = mensagem_to_send.replace("[HORARIO]", saudacao);
+
+        console.log("result.text != undefined");
+        messageCount  = 1;
+        userAnswerYes = message.yesAnswer;
+        userAnswerNo  = message.noAnser;
+        messageIdNo   = message.nokId;
+        messageIdYes  = message.okId;
+
+        // console.log("message = " + message);
+        console.log("message text = " + message.message_text);
+
+        var arrayButton = buildMenuInicial();
+        console.log("SENDER ID = "+ sender);
         sessionUtil.updateSession(sender, messageCount, userAnswerYes, opcoesEnviadas, userPic);
+        messenger.sendQuickReply(sender, mensagem_to_send, arrayButton);
         continue
       } else if (event.postback.payload == "HOTEL_NAO") {
 
