@@ -260,7 +260,7 @@ sendQuickReply: function(sender, message, arrayReplies){
 
     var token = "EAAFZBLHIfeM0BAG2z6YKpUhKCoByf8cC57HFUuaShhCJN11tLyz7gZCnOlUDnB1JKZCvRUHQJE2xSBfZCfbZBTNHxTN7UpCHrhSzMxR0dHGBWOPNkmsgYJl9zo5b37S52PwUyaTi16zHbFhZCuEDLqdZCswihBeLic0H6JiHVXYuQZDZD"
 
-    console.log();
+    console.log("send quick_replies "+ JSON.stringify(arrayReplies));
     messageData = {
         "text":"Pick a color:",
         "quick_replies": arrayReplies
