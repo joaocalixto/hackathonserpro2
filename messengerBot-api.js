@@ -262,7 +262,7 @@ sendQuickReply: function(sender, message, arrayReplies){
 
     console.log("send quick_replies "+ JSON.stringify(arrayReplies));
     messageData = {
-        "text":message,
+        "text": message,
         "quick_replies": arrayReplies
     }
     request({

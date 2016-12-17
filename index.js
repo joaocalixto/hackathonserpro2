@@ -270,7 +270,7 @@ app.post("/webhook/", function(req, res) {
         sessionUtil.updateSession(sender, messageCount, userAnswerYes, opcoesEnviadas, userPic);
         messenger.sendQuickReply(sender, mensagem_to_send, arrayButton);
         continue
-      } else if (event.postback.payload == "HOTEL_NAO") {
+      } else if (event.postback.payload == "RENEGOCIAR") {
 
         var arrayElements = buildMenuCardapio();
         messenger.sendGenericMessage(sender, arrayElements);
@@ -321,11 +321,11 @@ function buildMenuInicial(){
 
         arrayButton.push({
             "content_type":"TEXT",
-            "title":"renegociar pensão alimentícia",
+            "title":"Renegociar",
             "payload":"RENEGOCIAR"},
             {
             "content_type":"TEXT",
-            "title":"prestacao de contas",
+            "title":"Prestação de contas",
             "payload":"PRESTACAO_CONTAS"}
             );
   return arrayButton;
