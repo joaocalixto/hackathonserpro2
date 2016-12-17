@@ -8,7 +8,7 @@ child dialog by simply saying "menu" or "back".
     
 -----------------------------------------------------------------------------*/
 
-var builder = require('../core/');
+var builder = require('./core/');
 
 // Create chat bot
 var connector = new builder.ChatConnector({
