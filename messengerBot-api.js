@@ -262,7 +262,7 @@ sendQuickReply: function(sender, message, arrayReplies){
 
     console.log("send quick_replies "+ JSON.stringify(arrayReplies));
     messageData = {
-        "text":"Pick a color:",
+        "text":message,
         "quick_replies": arrayReplies
     }
     request({
