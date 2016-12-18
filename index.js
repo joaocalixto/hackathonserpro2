@@ -43,7 +43,7 @@ bot.dialog('/', dialog);
 
 server.post('/api/messages', connector.listen());
 
-dialog.matches('builtin.intent.HackthonSerpro.#abrir_mei', [
+dialog.matches('builtin.intent.#abrir_mei', [
     function (session, args, next) {
         session.send("vc escolhei opcao sim para o mei.");
     },
