@@ -33,33 +33,27 @@ var bot = new builder.UniversalBot(connector, [
     }
 ]);
 
-var model = 'https://api.projectoxford.ai/luis/v2.0/apps/c5459c20-6962-4768-ad07-892a270f52b1?subscription-key=fb670f8f02b941b2ae7a9d7777b49223&q=';
+var model = 'https://api.projectoxford.ai/luis/v2.0/apps/c5459c20-6962-4768-ad07-892a270f52b1?subscription-key=fb670f8f02b941b2ae7a9d7777b49223';
 var recognizer = new builder.LuisRecognizer(model);
 var dialog = new builder.IntentDialog({ recognizers: [recognizer] });
 
-bot.dialog('/api/messages', dialog);
+bot.dialog('/', dialog);
 
 //abrir_mei
 
 server.post('/api/messages', connector.listen());
 
-//server.post('/', connector.listen());
+dialog.matches('builtin.intent.HackthonSerpro.#abrir_mei', [
+    function (session, args, next) {
+        session.send("vc escolhei opcao sim para o mei.");
+    },
+    function (session, results) {
+        console.log("resposta SIM")
+    }
+]);
 
-dialog.matches('abrir_mei', builder.DialogAction.send('Abrir mei'));
-
-//dialog.matchesAny('precisa_abrir_mei', builder.DialogAction.send('Abrir mei p'));
-
-dialog.matches('HackthonSerpro.#saudacoes', builder.DialogAction.send('Oi oi '));
-
-dialog.onDefault(builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras."));
 // dialog.onBegin(function(session,args){
 //   builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras.")
 // });
 
-dialog.onBegin(function (session, args, next) {
-    session.dialogData.name = args.name;
-    session.send("Hi %s...", args.name);
-    next();
-});
-
-
+dialog.onDefault(builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras."));
