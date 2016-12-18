@@ -29,13 +29,13 @@ var model = 'https://api.projectoxford.ai/luis/v2.0/apps/c5459c20-6962-4768-ad07
 var recognizer = new builder.LuisRecognizer(model);
 var dialog = new builder.IntentDialog({ recognizers: [recognizer] });
 
-bot.dialog('/', dialog);
+//bot.dialog('/api/messages', dialog);
 
 //abrir_mei
 
 server.post('/api/messages', connector.listen());
 
-dialog.matches('builtin.intent.HackthonSerpro.#abrir_mei', [
+dialog.matches('abrir_mei', [
     function (session, args, next) {
         session.send("vc escolhei opcao sim para o mei.");
     },
