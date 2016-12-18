@@ -45,8 +45,8 @@ bot.dialog('/', dialog);
 
 server.post('/', connector.listen());
 
-dialog.matches('builtin.intent.HackthonSerpro.#abrir_mei', builder.DialogAction.send('Abrir mei'));
-dialog.matches('builtin.intent.HackthonSerpro.#saudacoes', builder.DialogAction.send('Oi oi '));
+dialog.matches('HackthonSerpro.#abrir_mei', builder.DialogAction.send('Abrir mei'));
+dialog.matches('HackthonSerpro.#saudacoes', builder.DialogAction.send('Oi oi '));
 
 dialog.onDefault(builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras."));
 // dialog.onBegin(function(session,args){
