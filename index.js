@@ -62,7 +62,7 @@ dialog.matches('saudacoes', [
         session.send(
           "Oi eu sou o InforMEI, "+
           "seu assistente pessoal, estou aqui pra lhe ajudar a abrir ou cuidar do seu negócio."+
-          " Como posso lhe ajudar ?"
+          " Digite 'ajuda' para eu te mostrar as áreas que posso te ajudar."
         );
     },
     function (session, results) {
@@ -151,7 +151,7 @@ dialog.matches('apresentacao', [
         session.send(
           "Oi eu sou o InforMEI, "+
           "seu assistente pessoal, estou aqui pra lhe ajudar a abrir ou cuidar do seu negócio."+
-          " Como posso lhe ajudar ?"
+          " Digite 'ajuda' para eu te mostrar as áreas que posso te ajudar."
         );
     },
     function (session, results) {
@@ -159,10 +159,17 @@ dialog.matches('apresentacao', [
     }
 ]);
 
-// dialog.onBegin(function(session,args){
-//   builder.DialogAction.send("Oi eu sou o InforMEI, "+
-//     "seu assistente pessoal, estou aqui pra lhe ajudar a abrir ou cuidar do seu negócio."+
-//     " Como posso lhe ajudar ?");
-// });
+dialog.matches('ajuda', [
+    function (session, args, next) {
+        session.send(
+          "Posso te ajudar nas seguintes áreas: "+
+          "Como abrir um MEI \nO que precisa para abrir um MEI \nBenefícios \nComo dar baixa no seu MEI \n"+
+          "Posso abrir outro MEI \nBoletos \nFuncionários \nDireitos \nAtividades permitidas"
+        );
+    },
+    function (session, results) {
+        console.log("resposta SIM")
+    }
+]);
 
 dialog.onDefault(builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras."));
