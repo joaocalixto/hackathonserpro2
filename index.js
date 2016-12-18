@@ -52,9 +52,9 @@ dialog.matches('#abrir_mei', [
     }
 ]);
 
-dialog.onBegin(session){
-  session.send("Bem vindo ao portal de duvidas do micro empreendor. Aqui você vai tirar todas duvidas.");
-}
+dialog.onBegin(function(session,args){
+  builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras.")
+});
 
 dialog.onDefault(builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras."));
 
