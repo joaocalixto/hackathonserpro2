@@ -41,7 +41,7 @@ dialog.matches('abrir_mei', [
           "você consegue o seu Cadastro Nacional de Pessoas Jurídicas (CNPJ) e "+
           "fica mais simples abrir uma conta no banco para sua empresa, emitir notas fiscais e buscar empréstimos.");
         builder.Prompts.choice(session, "Você gostaria de fazer um MEI?.", "sim|não");
-        next();
+        // next();
     },
     function (session, results, next) {
 
