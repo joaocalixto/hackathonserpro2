@@ -44,6 +44,96 @@ dialog.matches('abrir_mei', [
     }
 ]);
 
+dialog.matches('o_que_e_mei', [
+    function (session, args, next) {
+        session.send("vc escolhei opcao sim para o mei.");
+    },
+    function (session, results) {
+        console.log("resposta SIM")
+    }
+]);
+
+dialog.matches('saudacoes', [
+    function (session, args, next) {
+        session.send("vc escolhei opcao sim para o mei.");
+    },
+    function (session, results) {
+        console.log("resposta SIM")
+    }
+]);
+
+dialog.matches('nao_possui_mei', [
+    function (session, args, next) {
+        session.send("vc escolhei opcao sim para o mei.");
+    },
+    function (session, results) {
+        console.log("resposta SIM")
+    }
+]);
+
+dialog.matches('precisa_abrir_mei', [
+    function (session, args, next) {
+        session.send("vc escolhei opcao sim para o mei.");
+    },
+    function (session, results) {
+        console.log("resposta SIM")
+    }
+]);
+
+dialog.matches('baixa_mei', [
+    function (session, args, next) {
+        session.send("vc escolhei opcao sim para o mei.");
+    },
+    function (session, results) {
+        console.log("resposta SIM")
+    }
+]);
+
+dialog.matches('abrir_outro_mei', [
+    function (session, args, next) {
+        session.send("vc escolhei opcao sim para o mei.");
+    },
+    function (session, results) {
+        console.log("resposta SIM")
+    }
+]);
+
+dialog.matches('beneficios_abrir_mei', [
+    function (session, args, next) {
+        session.send("vc escolhei opcao sim para o mei.");
+    },
+    function (session, results) {
+        console.log("resposta SIM")
+    }
+]);
+
+dialog.matches('possui_mei', [
+    function (session, args, next) {
+        session.send("vc escolhei opcao sim para o mei.");
+    },
+    function (session, results) {
+        console.log("resposta SIM")
+    }
+]);
+
+dialog.matches('boleto_mei', [
+    function (session, args, next) {
+        session.send("vc escolhei opcao sim para o mei.");
+    },
+    function (session, results) {
+        console.log("resposta SIM")
+    }
+]);
+
+dialog.matches('apresentacao', [
+    function (session, args, next) {
+        session.send("vc escolhei opcao sim para o mei.");
+    },
+    function (session, results) {
+        console.log("resposta SIM")
+    }
+]);
+
 // dialog.onBegin(function(session,args){
 //   builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras.")
 // });
