@@ -40,7 +40,7 @@ dialog.matches('abrir_mei', [
         session.send("Para virar MEI, basta fazer um cadastro bem fácil no site portaldoempreendedor.com.br. Em poucos minutos, "+
           "você consegue o seu Cadastro Nacional de Pessoas Jurídicas (CNPJ) e "+
           "fica mais simples abrir uma conta no banco para sua empresa, emitir notas fiscais e buscar empréstimos.");
-        builder.Prompts.choice(session, "Você gostaria de fazer um MEI?.", "sim|não", { listStyle: builder.ListStyle.none });
+        builder.Prompts.choice(session, "Você gostaria de fazer um MEI?.", "sim|não");
         next();
     },
     function (session, results, next) {
