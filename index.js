@@ -35,17 +35,17 @@ var dialog = new builder.IntentDialog({ recognizers: [recognizer] });
 
 server.post('/api/messages', connector.listen());
 
-dialog.matches('abrir_mei', [
-    function (session, args, next) {
-        session.send("vc escolhei opcao sim para o mei.");
-    },
-    function (session, results) {
-        console.log("resposta SIM")
-    }
-]);
+// dialog.matches('abrir_mei', [
+//     function (session, args, next) {
+//         session.send("vc escolhei opcao sim para o mei.");
+//     },
+//     function (session, results) {
+//         console.log("resposta SIM")
+//     }
+// ]);
 
 // dialog.onBegin(function(session,args){
 //   builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras.")
 // });
 
-//dialog.onDefault(builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras."));
+dialog.onDefault(builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras."));
