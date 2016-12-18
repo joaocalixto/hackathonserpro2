@@ -201,8 +201,8 @@ bot.dialog('criarMEI', [
 
       var msg = new builder.Message(session)
             .attachments([{
-                contentType: "image/jpeg",
-                contentUrl: "http://www.theoldrobots.com/images62/Bender-18.JPG"
+                contentType: "image/png",
+                contentUrl: "http://www.desenhoonline.com/site/wp-content/uploads/Golpe-do-Boleto-MEI.png"
             }]);
         session.endDialog(msg);
       // var reply =
