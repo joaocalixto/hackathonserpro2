@@ -40,9 +40,19 @@ dialog.matches('abrir_mei', [
         session.send("Para virar MEI, basta fazer um cadastro bem fácil no site portaldoempreendedor.com.br. Em poucos minutos, "+
           "você consegue o seu Cadastro Nacional de Pessoas Jurídicas (CNPJ) e "+
           "fica mais simples abrir uma conta no banco para sua empresa, emitir notas fiscais e buscar empréstimos.");
+        builder.Prompts.choice(session, "Você gostaria de fazer um MEI?.", "sim|não", { listStyle: builder.ListStyle.none });
+        next();
     },
-    function (session, results) {
-        console.log("resposta SIM")
+    function (session, results, next) {
+
+      switch (results.response.index) {
+           case 0:
+               session.beginDialog('criarMEI');
+               break;
+           case 1:
+               session.send("OK, posso te ajudar em mais alguma coisa?");
+               break;
+      }
     }
 ]);
 
@@ -176,5 +186,25 @@ dialog.matches('ajuda', [
         console.log("resposta SIM")
     }
 ]);
+
+bot.dialog('criarMEI', [
+    function (session) {
+         builder.Prompts.text(session, "Digite seu CPF.");
+    },
+    function (session, results) {
+         builder.Prompts.text(session, "Otimo agora digite sua data de nascimento.");
+    },
+    function (session, results) {
+       builder.Prompts.text(session, "Digite sua atividade principal.");
+    },
+    function (session, results) {
+      var reply =
+         new builder.Message()
+             .setText(session, "Aqui está seu boleto e pronto. Depois disso vc é um MEI")
+             .addAttachment({ fallbackText: "Aqui está seu boleto e pronto. Depois disso vc é um MEI", contentType: 'image/jpeg', contentUrl: "http://grupolyta.com.br/wp-content/uploads/2015/08/boleto-mei-grupolyta.png" });
+      session.send(reply);
+      session.send("Posso te ajudar em mais alguma coisa?");
+    }
+}
 
 dialog.onDefault(builder.DialogAction.send("Desculpe, não entendi. Você pode tentar falar com outras palavras."));
