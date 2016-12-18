@@ -23,15 +23,7 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 });
 
 // Setup bot and root waterfall
-var bot = new builder.UniversalBot(connector, [
-    function (session) {
-        session.send("Bem vindo ao portal de duvidas do micro empreendor. Aqui você vai tirar todas duvidas.");
-        //session.beginDialog('rootMenu');
-    },
-    function (session, results) {
-        session.endConversation("Xau Xau :)))))");
-    }
-]);
+var bot = new builder.UniversalBot(connector);
 
 var model = 'https://api.projectoxford.ai/luis/v2.0/apps/c5459c20-6962-4768-ad07-892a270f52b1?subscription-key=fb670f8f02b941b2ae7a9d7777b49223';
 var recognizer = new builder.LuisRecognizer(model);
