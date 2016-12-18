@@ -56,4 +56,4 @@ dialog.matches('builtin.intent.HackthonSerpro.#abrir_mei', [
 //   builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras.")
 // });
 
-dialog.onDefault(builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras."));
+// dialog.onDefault(builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras."));
