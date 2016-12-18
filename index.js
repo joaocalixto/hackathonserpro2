@@ -29,7 +29,7 @@ var model = 'https://api.projectoxford.ai/luis/v2.0/apps/c5459c20-6962-4768-ad07
 var recognizer = new builder.LuisRecognizer(model);
 var dialog = new builder.IntentDialog({ recognizers: [recognizer] });
 
-//bot.dialog('/api/messages', dialog);
+//bot.dialog('/api/messa ges', dialog);
 
 //abrir_mei
 
