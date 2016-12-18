@@ -159,10 +159,10 @@ dialog.matches('apresentacao', [
     }
 ]);
 
-dialog.onBegin(function(session,args){
-  builder.DialogAction.send("Oi eu sou o InforMEI, "+
-    "seu assistente pessoal, estou aqui pra lhe ajudar a abrir ou cuidar do seu negócio."+
-    " Como posso lhe ajudar ?");
-});
+// dialog.onBegin(function(session,args){
+//   builder.DialogAction.send("Oi eu sou o InforMEI, "+
+//     "seu assistente pessoal, estou aqui pra lhe ajudar a abrir ou cuidar do seu negócio."+
+//     " Como posso lhe ajudar ?");
+// });
 
 dialog.onDefault(builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras."));
