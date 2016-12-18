@@ -2,6 +2,9 @@
   "engines": {
     "node": "5.9.1"
   },
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "body-parser": "^1.15.0",
     "botbuilder": "^3.5.0-rc9",

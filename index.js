@@ -1,11 +1,11 @@
 /*-----------------------------------------------------------------------------
 This Bot demonstrates how to create a simple menu for a bot. We've also added a
-reloadAction() to the menus dialog which lets you return to the menu from any 
-child dialog by simply saying "menu" or "back". 
+reloadAction() to the menus dialog which lets you return to the menu from any
+child dialog by simply saying "menu" or "back".
 # RUN THE BOT:
-    Run the bot from the command line using "node app.js" and then type 
+    Run the bot from the command line using "node app.js" and then type
     "hello" to wake the bot up.
-    
+
 -----------------------------------------------------------------------------*/
 
 var restify = require('restify');
@@ -19,7 +19,7 @@ var connector = new builder.ChatConnector({
 
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
-   console.log('%s listening to %s', server.name, server.url); 
+   console.log('%s listening to %s', server.name, server.url);
 });
 
 // Setup bot and root waterfall
@@ -127,7 +127,11 @@ dialog.matches('boleto_mei', [
 
 dialog.matches('apresentacao', [
     function (session, args, next) {
-        session.send("vc escolhei opcao sim para o mei.");
+        session.send(
+          "Oi eu sou o InforMEI, "+
+          "seu assistente pessoal, estou aqui pra lhe ajudar abrir ou cuidar do seu negócio."+
+          " Como posso lhe ajudar ?"
+        );
     },
     function (session, results) {
         console.log("resposta SIM")
