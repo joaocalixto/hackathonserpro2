@@ -41,7 +41,7 @@ bot.dialog('/api/messages', dialog);
 
 //abrir_mei
 
-// server.post('/api/messages', connector.listen());
+server.post('/api/messages', connector.listen());
 
 //server.post('/', connector.listen());
 
