@@ -104,6 +104,11 @@ bot.dialog('magicBallDialog', [
     }
 ]);
 
+bot.dialog('/', function (session) {
+    session.send("Bem vindo ao portal de duvidas do micro empreendor. Aqui você vai tirar todas duvidas.");
+    session.beginDialog('rootMenu');
+});
+
 var magicAnswers = [
     "It is certain",
     "It is decidedly so",
