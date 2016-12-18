@@ -195,13 +195,13 @@ bot.dialog('criarMEI', [
          builder.Prompts.text(session, "Otimo agora digite sua data de nascimento.");
     },
     function (session, results) {
-       builder.Prompts.text(session, "Digite sua atividade principal.");
+         builder.Prompts.text(session, "Digite sua atividade principal.");
     },
     function (session, results) {
       var reply =
          new builder.Message()
              .setText(session, "Aqui está seu boleto e pronto. Depois disso vc é um MEI")
-             .addAttachment({ fallbackText: "Aqui está seu boleto e pronto. Depois disso vc é um MEI", contentType: 'image/jpeg', contentUrl: "http://grupolyta.com.br/wp-content/uploads/2015/08/boleto-mei-grupolyta.png" });
+             .addAttachment({ fallbackText: "Aqui está seu boleto e pronto. Depois disso vc é um MEI", contentType: 'image/png', contentUrl: "http://grupolyta.com.br/wp-content/uploads/2015/08/boleto-mei-grupolyta.png" });
       session.send(reply);
       session.send("Posso te ajudar em mais alguma coisa?");
     }
