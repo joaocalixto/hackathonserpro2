@@ -43,6 +43,8 @@ bot.dialog('/', dialog);
 
 // server.post('/api/messages', connector.listen());
 
+server.post('/', connector.listen());
+
 dialog.matches('builtin.intent.HackthonSerpro.#abrir_mei', builder.DialogAction.send('Abrir mei'));
 dialog.matches('builtin.intent.HackthonSerpro.#saudacoes', builder.DialogAction.send('Oi oi '));
 
