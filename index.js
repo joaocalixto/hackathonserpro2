@@ -184,6 +184,21 @@ dialog.matches('ajuda', [
     }
 ]);
 
+dialog.matches('direitos', [
+    function (session, args, next) {
+        session.send("Direitos de um MEI: ");
+        session.send("Como abrir um MEI");
+        session.send("O que precisa para abrir um MEI");
+        session.send("Benefícios");
+        session.send("Como dar baixa no seu MEI");
+        session.send("Entre outros...");
+    },
+    function (session, results) {
+        console.log("resposta SIM")
+    }
+]);
+
+
 bot.dialog('criarMEI', [
     function (session) {
          builder.Prompts.text(session, "Digite seu CPF.");
@@ -212,4 +227,4 @@ bot.dialog('criarMEI', [
     }
 ]);
 
-dialog.onDefault(builder.DialogAction.send("Desculpe, não entendi. Você pode tentar falar com outras palavras."));
+dialog.onDefault(builder.DialogAction.send("Desculpe, não entendi. Você pode tentar falar com outras palavras?"));
