@@ -26,7 +26,7 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 var bot = new builder.UniversalBot(connector, [
     function (session) {
         session.send("Bem vindo ao portal de duvidas do micro empreendor. Aqui você vai tirar todas duvidas.");
-        session.beginDialog('rootMenu');
+        //session.beginDialog('rootMenu');
     },
     function (session, results) {
         session.endConversation("Xau Xau :)))))");
@@ -47,6 +47,8 @@ dialog.matches('abrir_mei', function (session) {
     session.send("Abrir mei.");
     //session.beginDialog('rootMenu');
 });
+
+dialog.onDefault(builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras."));
 
 // Add root menu dialog
 bot.dialog('rootMenu', [
