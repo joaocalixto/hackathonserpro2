@@ -55,7 +55,11 @@ dialog.matches('o_que_e_mei', [
 
 dialog.matches('saudacoes', [
     function (session, args, next) {
-        session.send("vc escolhei opcao sim para o mei.");
+        session.send(
+          "Oi eu sou o InforMEI, "+
+          "seu assistente pessoal, estou aqui pra lhe ajudar abrir ou cuidar do seu negócio."+
+          " Como posso lhe ajudar ?"
+        );
     },
     function (session, results) {
         console.log("resposta SIM")
