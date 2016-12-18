@@ -43,10 +43,18 @@ bot.dialog('/', dialog);
 
 server.post('/api/messages', connector.listen());
 
-dialog.matches('abrir_mei', function (session) {
-    session.send("Abrir mei.");
-    //session.beginDialog('rootMenu');
-});
+dialog.matches('#abrir_mei', [
+    function (session, args, next) {
+        session.send("vc escolhei opcao sim para o mei.");
+    },
+    function (session, results) {
+        console.log("resposta SIM")
+    }
+]);
+
+dialog.onBegin(session){
+  session.send("Bem vindo ao portal de duvidas do micro empreendor. Aqui você vai tirar todas duvidas.");
+}
 
 dialog.onDefault(builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras."));
 
