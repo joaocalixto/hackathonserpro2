@@ -205,6 +205,6 @@ bot.dialog('criarMEI', [
       session.send(reply);
       session.send("Posso te ajudar em mais alguma coisa?");
     }
-}
+]);
 
 dialog.onDefault(builder.DialogAction.send("Desculpe, não entendi. Você pode tentar falar com outras palavras."));
