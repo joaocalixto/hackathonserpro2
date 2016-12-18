@@ -33,7 +33,7 @@ var bot = new builder.UniversalBot(connector, [
     }
 ]);
 
-var model = 'https://api.projectoxford.ai/luis/v2.0/apps/c5459c20-6962-4768-ad07-892a270f52b1?subscription-key=fb670f8f02b941b2ae7a9d7777b49223&q=';
+var model = 'https://api.projectoxford.ai/luis/v2.0/apps/c5459c20-6962-4768-ad07-892a270f52b1?subscription-key=fb670f8f02b941b2ae7a9d7777b49223';
 var recognizer = new builder.LuisRecognizer(model);
 var dialog = new builder.IntentDialog({ recognizers: [recognizer] });
 
@@ -43,7 +43,7 @@ bot.dialog('/', dialog);
 
 server.post('/api/messages', connector.listen());
 
-dialog.matches('builtin.intent.#abrir_mei', [
+dialog.matches('builtin.intent.HackthonSerpro.#abrir_mei', [
     function (session, args, next) {
         session.send("vc escolhei opcao sim para o mei.");
     },
@@ -57,48 +57,3 @@ dialog.matches('builtin.intent.#abrir_mei', [
 // });
 
 dialog.onDefault(builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras."));
-
-// Add root menu dialog
-bot.dialog('rootMenu', [
-    function (session) {
-        builder.Prompts.choice(session, "Primeiro você possui MEI:", 'Sim|Não|Quit');
-    },
-    function (session, results) {
-        switch (results.response.index) {
-            case 0:
-                session.beginDialog('simMEI');
-                break;
-            case 1:
-                session.beginDialog('naoMEI');
-                break;
-            default:
-                session.endDialog();
-                break;
-        }
-    },
-    function (session) {
-        // Reload menu
-        session.replaceDialog('rootMenu');
-    }
-]).reloadAction('showMenu', null, { matches: /^(menu|back)/i });
-
-// Flip a coin
-bot.dialog('simMEI', [
-    function (session, args) {
-        session.send("vc escolhei opcao sim para o mei.");
-    },
-    function (session, results) {
-        console.log("resposta SIM")
-    }
-]);
-
-// Roll some dice
-bot.dialog('naoMEI', [
-    function (session, args) {
-        session.send("vc escolhei opcao NAO para o mei.");
-    },
-    function (session, results) {
-        console.log("resposta NAO")
-    }
-]);
-
