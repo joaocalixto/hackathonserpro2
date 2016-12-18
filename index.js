@@ -201,6 +201,7 @@ bot.dialog('criarMEI', [
 
       var msg = new builder.Message(session)
             .attachments([{
+                fallbackText: "Aqui está seu boleto e pronto. Depois disso vc é um MEI",
                 contentType: "image/png",
                 contentUrl: "http://www.desenhoonline.com/site/wp-content/uploads/Golpe-do-Boleto-MEI.png"
             }]);
