@@ -45,7 +45,22 @@ bot.dialog('/', dialog);
 
 server.post('/', connector.listen());
 
-dialog.matches('#abrir_mei', builder.DialogAction.send('Abrir mei'));
+bot.dialog('/setAlarm', [
+    function (session, args) {
+        // Resolve and store any entities passed from LUIS.
+       console.log("entrou")
+    },
+    function (session, results) {
+        console.log("results")
+    }
+]).triggerAction({ 
+    matches: 'builtin.intent.HackthonSerpro.#abrir_mei',
+    confirmPrompt: "This will cancel the current alarm. Are you sure?"
+}).cancelAction('cancelSetAlarm', "Alarm canceled.", {
+    matches: /^(cancel|nevermind)/i,
+    confirmPrompt: "Are you sure?"
+});
+
 dialog.matches('HackthonSerpro.#saudacoes', builder.DialogAction.send('Oi oi '));
 
 dialog.onDefault(builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras."));
