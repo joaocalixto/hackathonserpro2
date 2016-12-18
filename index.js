@@ -47,7 +47,7 @@ server.post('/', connector.listen());
 
 dialog.matches('abrir_mei', builder.DialogAction.send('Abrir mei'));
 
-dialog.matchesAny('precisa_abrir_mei', builder.DialogAction.send('Abrir mei p'));
+//dialog.matchesAny('precisa_abrir_mei', builder.DialogAction.send('Abrir mei p'));
 
 dialog.matches('HackthonSerpro.#saudacoes', builder.DialogAction.send('Oi oi '));
 
