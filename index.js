@@ -201,7 +201,7 @@ bot.dialog('criarMEI', [
       var reply =
          new builder.Message()
              .setText(session, "Aqui está seu boleto e pronto. Depois disso vc é um MEI")
-             .addAttachment({ fallbackText: "Aqui está seu boleto e pronto. Depois disso vc é um MEI", contentType: 'image/png', contentUrl: "http://grupolyta.com.br/wp-content/uploads/2015/08/boleto-mei-grupolyta.png" });
+             .addAttachment({ fallbackText: "Aqui está seu boleto e pronto. Depois disso vc é um MEI", contentType: 'image/*', contentUrl: "http://grupolyta.com.br/wp-content/uploads/2015/08/boleto-mei-grupolyta.png" });
       session.send(reply);
       session.send("Posso te ajudar em mais alguma coisa?");
     }
