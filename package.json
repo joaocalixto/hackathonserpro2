@@ -4,6 +4,7 @@
   },
   "dependencies": {
     "body-parser": "^1.15.0",
+    "botbuilder": "^3.5.0-rc9",
     "express": "^4.13.4",
     "nodemailer": "^0.7.1",
     "request": "^2.72.0"
