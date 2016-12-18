@@ -37,6 +37,8 @@ var model = 'https://api.projectoxford.ai/luis/v2.0/apps/c5459c20-6962-4768-ad07
 var recognizer = new builder.LuisRecognizer(model);
 var dialog = new builder.IntentDialog({ recognizers: [recognizer] });
 
+bot.dialog('/', dialog);
+
 //abrir_mei
 
 server.post('/api/messages', connector.listen());
@@ -89,9 +91,4 @@ bot.dialog('naoMEI', [
         console.log("resposta NAO")
     }
 ]);
-
-bot.dialog('/', function (session) {
-    session.send("Bem vindo ao portal de duvidas do micro empreendor. Aqui você vai tirar todas duvidas.");
-    //session.beginDialog('rootMenu');
-});
 
