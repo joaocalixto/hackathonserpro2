@@ -33,7 +33,18 @@ var bot = new builder.UniversalBot(connector, [
     }
 ]);
 
+var model = 'https://api.projectoxford.ai/luis/v2.0/apps/c5459c20-6962-4768-ad07-892a270f52b1?subscription-key=fb670f8f02b941b2ae7a9d7777b49223&q=';
+var recognizer = new builder.LuisRecognizer(model);
+var dialog = new builder.IntentDialog({ recognizers: [recognizer] });
+
+//abrir_mei
+
 server.post('/api/messages', connector.listen());
+
+dialog.matches('abrir_mei', function (session) {
+    session.send("Abrir mei.");
+    //session.beginDialog('rootMenu');
+});
 
 // Add root menu dialog
 bot.dialog('rootMenu', [
@@ -81,6 +92,6 @@ bot.dialog('naoMEI', [
 
 bot.dialog('/', function (session) {
     session.send("Bem vindo ao portal de duvidas do micro empreendor. Aqui você vai tirar todas duvidas.");
-    session.beginDialog('rootMenu');
+    //session.beginDialog('rootMenu');
 });
 
