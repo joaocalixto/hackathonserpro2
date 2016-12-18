@@ -37,13 +37,13 @@ var model = 'https://api.projectoxford.ai/luis/v2.0/apps/c5459c20-6962-4768-ad07
 var recognizer = new builder.LuisRecognizer(model);
 var dialog = new builder.IntentDialog({ recognizers: [recognizer] });
 
-//bot.dialog('/', dialog);
+bot.dialog('/', dialog);
 
 //abrir_mei
 
 // server.post('/api/messages', connector.listen());
 
-server.post('/', connector.listen());
+//server.post('/', connector.listen());
 
 dialog.matches('abrir_mei', builder.DialogAction.send('Abrir mei'));
 
