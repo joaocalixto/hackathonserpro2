@@ -128,23 +128,24 @@ dialog.matches('abrir_outro_mei', [
 
 dialog.matches('beneficios_abrir_mei', [
     function (session, args, next) {
-        session.send("Pensão por morte: a partir do primeiro pagamento em dia; Auxílio reclusão: a partir do primeiro pagamento em dia; "+
-          "Observação: se a contribuição do Microempreendedor Individual se der com base em um salário mínimo, "+
-          "qualquer benefício que ele vier a ter direito também se dará com base em um salário mínimo.");
+        session.send("Pensão por morte: a partir do primeiro pagamento em dia.");
+        session.send("Auxílio reclusão: a partir do primeiro pagamento em dia.")+
+        session.send("Observação: se a contribuição do Microempreendedor Individual se der com base em um salário mínimo.")
+        session.send("Qualquer benefício que ele vier a ter direito também se dará com base em um salário mínimo.");
     },
     function (session, results) {
         console.log("resposta SIM")
     }
 ]);
 
-dialog.matches('possui_mei', [
-    function (session, args, next) {
-        session.send("vc escolhei opcao sim para o mei.");
-    },
-    function (session, results) {
-        console.log("resposta SIM")
-    }
-]);
+// dialog.matches('possui_mei', [
+//     function (session, args, next) {
+//         session.send("vc escolhei opcao sim para o mei.");
+//     },
+//     function (session, results) {
+//         console.log("resposta SIM")
+//     }
+// ]);
 
 dialog.matches('boleto_mei', [
     function (session, args, next) {
@@ -176,11 +177,7 @@ dialog.matches('ajuda', [
         session.send("O que precisa para abrir um MEI");
         session.send("Benefícios");
         session.send("Como dar baixa no seu MEI");
-        session.send("Posso abrir outro MEI");
-        session.send("Boletos");
-        session.send("Funcionários");
-        session.send("Direitos");
-        session.send("Atividades permitidas");
+        session.send("Entre outros...");
     },
     function (session, results) {
         console.log("resposta SIM")
