@@ -72,10 +72,10 @@ dialog.matches('saudacoes', [
 
 dialog.matches('nao_possui_mei', [
     function (session, args, next) {
-        session.send("Antes de se formalizar dá uma olhadinha nos seguintes pontos: "+
-          "1 - Verificar se recebe algum benefício previdenciário (Exemplo: Aposentadoria por invalidez, Auxílio Doença, Seguro Desemprego, etc)."+
-          "2 - Procurar a prefeitura para verificar se a atividade pode ser exercida no local desejado. "+
-          "3 - Verificar se as atividades escolhidas podem ser registradas como MEI.");
+        session.send("Antes de se formalizar dá uma olhadinha nos seguintes pontos: ");
+        session.send("1 - Verificar se recebe algum benefício previdenciário (Exemplo: Aposentadoria por invalidez, Auxílio Doença, Seguro Desemprego, etc).");
+        session.send("2 - Procurar a prefeitura para verificar se a atividade pode ser exercida no local desejado. ");
+        session.send("3 - Verificar se as atividades escolhidas podem ser registradas como MEI.");
     },
     function (session, results) {
         console.log("resposta SIM")
@@ -84,9 +84,9 @@ dialog.matches('nao_possui_mei', [
 
 dialog.matches('precisa_abrir_mei', [
     function (session, args, next) {
-      session.send("Para se formalizar, se faz necessário informar o número do CPF e datade nascimento do titular, "+
-        "o número do título de eleitor ou o número doúltimo recibo de entrega da "+
-        "Declaração Anual de Imposto de RendaPessoa Física – DIRPF, caso esteja obrigado a entregar a DIRPF.");
+      session.send("Para se formalizar, se faz necessário informar o número do CPF e data de nascimento do titular, "+
+        "o número do título de eleitor ou o número do último recibo de entrega da "+
+        "Declaração Anual de Imposto de Renda Pessoa Física – DIRPF, caso esteja obrigado a entregar a DIRPF.");
 
     },
     function (session, results) {
@@ -161,15 +161,20 @@ dialog.matches('apresentacao', [
 
 dialog.matches('ajuda', [
     function (session, args, next) {
-        session.send(
-          "Posso te ajudar nas seguintes áreas: "+
-          "Como abrir um MEI \nO que precisa para abrir um MEI \nBenefícios \nComo dar baixa no seu MEI \n"+
-          "Posso abrir outro MEI \nBoletos \nFuncionários \nDireitos \nAtividades permitidas"
-        );
+        session.send("Posso te ajudar nas seguintes áreas: ");
+        session.send("Como abrir um MEI");
+        session.send("O que precisa para abrir um MEI");
+        session.send("Benefícios");
+        session.send("Como dar baixa no seu MEI");
+        session.send("Posso abrir outro MEI");
+        session.send("Boletos");
+        session.send("Funcionários");
+        session.send("Direitos");
+        session.send("Atividades permitidas");
     },
     function (session, results) {
         console.log("resposta SIM")
     }
 ]);
 
-dialog.onDefault(builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras."));
+dialog.onDefault(builder.DialogAction.send("Desculpe, não entendi. Você pode tentar falar com outras palavras."));
