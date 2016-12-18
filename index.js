@@ -43,7 +43,7 @@ var dialog = new builder.IntentDialog({ recognizers: [recognizer] });
 
 // server.post('/api/messages', connector.listen());
 
-//server.post('/', connector.listen());
+server.post('/', connector.listen());
 
 dialog.matches('abrir_mei', builder.DialogAction.send('Abrir mei'));
 
