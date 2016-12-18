@@ -37,7 +37,9 @@ server.post('/api/messages', connector.listen());
 
 dialog.matches('abrir_mei', [
     function (session, args, next) {
-        session.send("vc escolhei opcao sim para o mei.");
+        session.send("Para virar MEI, basta fazer um cadastro bem fácil no site portaldoempreendedor.com.br. Em poucos minutos, "+
+          "você consegue o seu Cadastro Nacional de Pessoas Jurídicas (CNPJ) e "+
+          "fica mais simples abrir uma conta no banco para sua empresa, emitir notas fiscais e buscar empréstimos.");
     },
     function (session, results) {
         console.log("resposta SIM")
@@ -46,7 +48,9 @@ dialog.matches('abrir_mei', [
 
 dialog.matches('o_que_e_mei', [
     function (session, args, next) {
-        session.send("vc escolhei opcao sim para o mei.");
+        session.send("Microempreendedor Individual (MEI) é a pessoa que trabalha por conta própria e que se legaliza como pequeno empresário."+
+            "Para ser um microempreendedor individual, é necessário faturar no máximo até R$ 60.000,00 por ano e não ter  participação em outra"+
+            " empresa como sócio ou titular.");
     },
     function (session, results) {
         console.log("resposta SIM")
@@ -57,7 +61,7 @@ dialog.matches('saudacoes', [
     function (session, args, next) {
         session.send(
           "Oi eu sou o InforMEI, "+
-          "seu assistente pessoal, estou aqui pra lhe ajudar abrir ou cuidar do seu negócio."+
+          "seu assistente pessoal, estou aqui pra lhe ajudar a abrir ou cuidar do seu negócio."+
           " Como posso lhe ajudar ?"
         );
     },
@@ -68,7 +72,10 @@ dialog.matches('saudacoes', [
 
 dialog.matches('nao_possui_mei', [
     function (session, args, next) {
-        session.send("vc escolhei opcao sim para o mei.");
+        session.send("Antes de se formalizar dá uma olhadinha nos seguintes pontos: "+
+          "1 - Verificar se recebe algum benefício previdenciário (Exemplo: Aposentadoria por invalidez, Auxílio Doença, Seguro Desemprego, etc)."+
+          "2 - Procurar a prefeitura para verificar se a atividade pode ser exercida no local desejado. "+
+          "3 - Verificar se as atividades escolhidas podem ser registradas como MEI.");
     },
     function (session, results) {
         console.log("resposta SIM")
@@ -77,7 +84,10 @@ dialog.matches('nao_possui_mei', [
 
 dialog.matches('precisa_abrir_mei', [
     function (session, args, next) {
-        session.send("vc escolhei opcao sim para o mei.");
+      session.send("Para se formalizar, se faz necessário informar o número do CPF e datade nascimento do titular, "+
+        "o número do título de eleitor ou o número doúltimo recibo de entrega da "+
+        "Declaração Anual de Imposto de RendaPessoa Física – DIRPF, caso esteja obrigado a entregar a DIRPF.");
+
     },
     function (session, results) {
         console.log("resposta SIM")
@@ -86,7 +96,10 @@ dialog.matches('precisa_abrir_mei', [
 
 dialog.matches('baixa_mei', [
     function (session, args, next) {
-        session.send("vc escolhei opcao sim para o mei.");
+        session.send("O primeiro passo para dar baixa no MEI é solicitar o código de acesso no Portal Simples Nacional: "+
+          "http://www8.receita.fazenda.gov.br/simplesnacional/controleacesso/GeraCodigo.aspx Para gerar esse código, "+
+          "é necessário informar CNPJ, CPF, Título de Eleitor ou recibo de Declaração de Imposto de Renda de Pessoa Física e a data de nascimento. Mais informações "+
+          "https://www.sebrae.com.br/sites/PortalSebrae/");
     },
     function (session, results) {
         console.log("resposta SIM")
@@ -95,7 +108,8 @@ dialog.matches('baixa_mei', [
 
 dialog.matches('abrir_outro_mei', [
     function (session, args, next) {
-        session.send("vc escolhei opcao sim para o mei.");
+        session.send("Somente um, mas se você trabalha com outras coisas, "+
+          "Você pode adicionar no seu cadastro, outras atividades extras.");
     },
     function (session, results) {
         console.log("resposta SIM")
@@ -104,7 +118,9 @@ dialog.matches('abrir_outro_mei', [
 
 dialog.matches('beneficios_abrir_mei', [
     function (session, args, next) {
-        session.send("vc escolhei opcao sim para o mei.");
+        session.send("Pensão por morte: a partir do primeiro pagamento em dia; Auxílio reclusão: a partir do primeiro pagamento em dia; "+
+          "Observação: se a contribuição do Microempreendedor Individual se der com base em um salário mínimo, "+
+          "qualquer benefício que ele vier a ter direito também se dará com base em um salário mínimo.");
     },
     function (session, results) {
         console.log("resposta SIM")
@@ -122,7 +138,8 @@ dialog.matches('possui_mei', [
 
 dialog.matches('boleto_mei', [
     function (session, args, next) {
-        session.send("vc escolhei opcao sim para o mei.");
+        session.send("A emissão da guia de recolhimento mensal é feita a partir do aplicativo PGMEI, no Portal do Simples Nacional. "+
+          "Clique aqui para acessar http://www.portaldoempreendedor.gov.br/mei-microempreendedor-individual/emissao-de-carne-de-pagamento-das");
     },
     function (session, results) {
         console.log("resposta SIM")
@@ -133,7 +150,7 @@ dialog.matches('apresentacao', [
     function (session, args, next) {
         session.send(
           "Oi eu sou o InforMEI, "+
-          "seu assistente pessoal, estou aqui pra lhe ajudar abrir ou cuidar do seu negócio."+
+          "seu assistente pessoal, estou aqui pra lhe ajudar a abrir ou cuidar do seu negócio."+
           " Como posso lhe ajudar ?"
         );
     },
@@ -142,8 +159,10 @@ dialog.matches('apresentacao', [
     }
 ]);
 
-// dialog.onBegin(function(session,args){
-//   builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras.")
-// });
+dialog.onBegin(function(session,args){
+  builder.DialogAction.send("Oi eu sou o InforMEI, "+
+    "seu assistente pessoal, estou aqui pra lhe ajudar a abrir ou cuidar do seu negócio."+
+    " Como posso lhe ajudar ?");
+});
 
 dialog.onDefault(builder.DialogAction.send("Desculpe não entendi, vc pode tentar falar com outras palavras."));
