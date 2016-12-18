@@ -198,12 +198,19 @@ bot.dialog('criarMEI', [
          builder.Prompts.text(session, "Digite sua atividade principal.");
     },
     function (session, results) {
-      var reply =
-         new builder.Message()
-             .setText(session, "Aqui está seu boleto e pronto. Depois disso vc é um MEI")
-             .addAttachment({ fallbackText: "Aqui está seu boleto e pronto. Depois disso vc é um MEI", contentType: 'image/png', contentUrl: "http://mei-microempreendedor.com.br/wp-content/uploads/2016/08/mei-boleto-2.png" });
-      session.send(reply);
-      session.endDialog("Posso te ajudar em mais alguma coisa?");
+
+      var msg = new builder.Message(session)
+            .attachments([{
+                contentType: "image/jpeg",
+                contentUrl: "http://www.theoldrobots.com/images62/Bender-18.JPG"
+            }]);
+        session.endDialog(msg);
+      // var reply =
+      //    new builder.Message()
+      //        .setText(session, "Aqui está seu boleto e pronto. Depois disso vc é um MEI")
+      //        .addAttachment({ fallbackText: "Aqui está seu boleto e pronto. Depois disso vc é um MEI", contentType: 'image/png', contentUrl: "http://mei-microempreendedor.com.br/wp-content/uploads/2016/08/mei-boleto-2.png" });
+      // session.send(reply);
+      // session.endDialog("Posso te ajudar em mais alguma coisa?");
     }
 ]);
 
